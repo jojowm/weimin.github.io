@@ -348,12 +348,12 @@
     <article class="index-post">
         <a class="abstract-title" href = "/2019/09/06/input标签的maxlength/" >
             
-                <span>当input标签</span>
+                <span>当input标签的maxlength属性遇上emoji</span>
         </a>
         <div class="abstract-content">
-            当input标签的maxlength属性遇上emoji限制输入框的字数是一个很常见的需求，我们常常使用input/textarea标签的maxlength属性来限制输入字数。但当用户输入emoji字符时，在不同端中maxlength属性计算出的emoji长度却不一致。js和安卓上一个emoji都算作2个字符长度，而在ios上为1个字符长度。
+            限制输入框的字数是一个很常见的需求，我们常常使用input/textarea标签的maxlength属性来限制输入字数。但当用户输入emoji字符时，在不同端中maxlength属性计算出的emoji长度却不一致。js和安卓上一个emoji都算作2个字符长度，而在ios上为1个字符长度。
 用js而非maxlength限制字数为了让限制字数在不同端上得到统一，可以用js限制字数取代maxlength属性，使用扩展运算符将输入字符串都转为数组计算长度，这样emoji在不同端长度都是1：
-123const inputValue = '👿�...
+123const inputValue = '👿😄other';const inputArr = [....
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -490,7 +490,7 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/06</span><a class="archive-post-title" href= "/2019/09/06/input标签的maxlength/" >当input标签</a>
+            <span class="archive-post-date">09/06</span><a class="archive-post-title" href= "/2019/09/06/input标签的maxlength/" >当input标签的maxlength属性遇上emoji</a>
         </li>
     
     </div>
