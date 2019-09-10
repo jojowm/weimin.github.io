@@ -359,6 +359,43 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/09/10/post请求头部origin-null踩坑/" >
+            
+                <span>部分浏览器在post请求头部添加origin: null</span>
+        </a>
+        <div class="abstract-content">
+            现象描述：在部分安卓手机的UC浏览器、QQ浏览器和自带浏览器中，当发起post请求时，浏览器会自动给请求头部增加origin: null，而后端出于安全考虑，无法处理origin：null的请求导致请求失败。
+解决方法：方法一：通过node层转发java请求在node层转发java请求时，手动增加origin: ‘xxx’字段，以express为例：
+1234567891011121314151617181920212223242526// node层router.post(`/api/*`, async (req, res) =&gt; &#123;  const url = req....
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/10</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "post">post</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "fetch">fetch</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "origin">origin</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "referrerPolicy">referrerPolicy</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/09/06/input标签的maxlength/" >
             
                 <span>当input标签的maxlength属性遇上emoji</span>
@@ -558,9 +595,16 @@ height:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 1
+        Total : 2
         </div>
         <!-- search  -->
         
@@ -576,6 +620,11 @@ height:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">09/10</span><a class="archive-post-title" href= "/2019/09/10/post请求头部origin-null踩坑/" >部分浏览器在post请求头部添加origin: null</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">09/06</span><a class="archive-post-title" href= "/2019/09/06/input标签的maxlength/" >当input标签的maxlength属性遇上emoji</a>
         </li>
     
@@ -587,6 +636,18 @@ height:50vh;
         <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
     
         <span class="sidebar-tag-name" data-tags="react"><span class="iconfont-archer">&#xe606;</span>react</span>
+    
+        <span class="sidebar-tag-name" data-tags="post"><span class="iconfont-archer">&#xe606;</span>post</span>
+    
+        <span class="sidebar-tag-name" data-tags="fetch"><span class="iconfont-archer">&#xe606;</span>fetch</span>
+    
+        <span class="sidebar-tag-name" data-tags="origin"><span class="iconfont-archer">&#xe606;</span>origin</span>
+    
+        <span class="sidebar-tag-name" data-tags="referrerPolicy"><span class="iconfont-archer">&#xe606;</span>referrerPolicy</span>
+    
+        <span class="sidebar-tag-name" data-tags="browser"><span class="iconfont-archer">&#xe606;</span>browser</span>
+    
+        <span class="sidebar-tag-name" data-tags="DOM"><span class="iconfont-archer">&#xe606;</span>DOM</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

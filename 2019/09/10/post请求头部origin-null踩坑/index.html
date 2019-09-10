@@ -22,7 +22,7 @@
     <meta name="description" content="learning FE">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>404 · kayleeWei</title>
+    <title>部分浏览器在post请求头部添加origin: null · kayleeWei</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,7 +203,7 @@
 </head>
 
     
-        <body class="four-zero-four-body">
+        <body class="post-body">
     
     
 <header class="header">
@@ -211,6 +211,15 @@
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >kayleeWei.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">部分浏览器在post请求头部添加origin: null</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>kayleeWei.</a>
 </header>
@@ -222,32 +231,80 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
     
     
-    <!-- about页 -->
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/404-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.png)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            404
-            <!-- about -->
+            部分浏览器在post请求头部添加origin: null
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-                Oops~! Not found
+            
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "post">post</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "fetch">fetch</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "origin">origin</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "referrerPolicy">referrerPolicy</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">355</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/09/10</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -348,8 +405,57 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <!-- 不可以删除，否则会调用post的layout  -->
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="现象描述："><a href="#现象描述：" class="headerlink" title="现象描述："></a>现象描述：</h2><p>在部分安卓手机的UC浏览器、QQ浏览器和自带浏览器中，当发起post请求时，浏览器会自动给请求头部增加origin: null，而后端出于安全考虑，无法处理origin：null的请求导致请求失败。</p>
+<h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><h3 id="方法一：通过node层转发java请求"><a href="#方法一：通过node层转发java请求" class="headerlink" title="方法一：通过node层转发java请求"></a>方法一：通过node层转发java请求</h3><p>在node层转发java请求时，手动增加origin: ‘xxx’字段，以express为例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// node层</span></span><br><span class="line">router.post(<span class="string">`/api/*`</span>, <span class="keyword">async</span> (req, res) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> url = req.originalUrl.substring(req.originalUrl.indexOf(<span class="string">`/api/`</span>) + <span class="number">5</span>);</span><br><span class="line">  <span class="keyword">const</span> cookies = req.cookies;</span><br><span class="line">  <span class="keyword">const</span> resp = <span class="keyword">await</span> fetch(<span class="string">'xxxx(请求的url)'</span>, &#123;</span><br><span class="line">    method: <span class="string">'post'</span>,</span><br><span class="line">    body: queryString.stringify(<span class="built_in">Object</span>.assign(&#123;&#125;, req.body)),</span><br><span class="line">    headers: &#123;</span><br><span class="line">      <span class="string">'Content-Type'</span>: <span class="string">'application/x-www-form-urlencoded'</span>,</span><br><span class="line">      origin: <span class="string">'https://xxx(需要设置的origin)'</span>, <span class="comment">// 添加origin</span></span><br><span class="line">      cookie: <span class="built_in">Object</span>.keys(cookies).map(<span class="function"><span class="params">c</span> =&gt;</span> <span class="string">`<span class="subst">$&#123;c&#125;</span>=<span class="subst">$&#123;cookies[c]&#125;</span>`</span>).join(<span class="string">';'</span>),</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">const</span> retJson = <span class="keyword">await</span> resp.json();</span><br><span class="line">  res.send(retJson);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求node接口</span></span><br><span class="line"><span class="keyword">const</span> req = fetch(<span class="string">`<span class="subst">$&#123;当前前端域名&#125;</span>/api/<span class="subst">$&#123;接口名&#125;</span>`</span>, &#123;</span><br><span class="line">  method: <span class="string">'POST'</span>,</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">req.then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
+<p>从安全角度考虑，不推荐从node层转发时添加origin方法，可参考方法二</p>
+<h3 id="方法二：请求java-API时请求头部增加referrerPolicy-‘origin’"><a href="#方法二：请求java-API时请求头部增加referrerPolicy-‘origin’" class="headerlink" title="方法二：请求java API时请求头部增加referrerPolicy: ‘origin’"></a>方法二：请求java API时请求头部增加referrerPolicy: ‘origin’</h3><h4 id="为什么有些浏览器会将origin设置为null呢？"><a href="#为什么有些浏览器会将origin设置为null呢？" class="headerlink" title="为什么有些浏览器会将origin设置为null呢？"></a>为什么有些浏览器会将origin设置为null呢？</h4><p>根据<a href="https://fetch.spec.whatwg.org/#origin-header" target="_blank" rel="noopener">fetch文档</a>，如果请求不是get或者head，则referrerPolicy设置为’no-referrer’时。会将origin设置为null，因此将referrerPolicy设置为’origin’，就不会出现origin：null的情况，解决方法如下：</p>
+<p><img src="https://i.loli.net/2019/09/10/RmHlyYuDBVXhx6p.png" alt="WeChat15ff80a221717be883112c23223d90db.png"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 请求java API</span></span><br><span class="line"><span class="keyword">const</span> req = fetch(<span class="string">`<span class="subst">$&#123;java API&#125;</span>`</span>, &#123;</span><br><span class="line">  method: <span class="string">'POST'</span>,</span><br><span class="line">  referrerPolicy: <span class="string">'origin'</span>,</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>Author：<a href="https://kayleeWei.github.io">kayleeWei</a>
+            <p>原文链接：<a href="https://kayleeWei.github.io/2019/09/10/post请求头部origin-null踩坑/">https://kayleeWei.github.io/2019/09/10/post请求头部origin-null踩坑/</a>
+            <p>发表日期：<a href="https://kayleeWei.github.io/2019/09/10/post请求头部origin-null踩坑/">September 10th 2019, 7:51:46 pm</a>
+            <p>更新日期：<a href="https://kayleeWei.github.io/2019/09/10/post请求头部origin-null踩坑/">September 10th 2019, 7:51:46 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/09/06/input标签的maxlength/" title= "当input标签的maxlength属性遇上emoji">
+                    <div class="prevTitle">当input标签的maxlength属性遇上emoji</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
             <!-- profile -->
             
         </div>
@@ -426,6 +532,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#现象描述："><span class="toc-number">1.</span> <span class="toc-text">现象描述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法："><span class="toc-number">2.</span> <span class="toc-text">解决方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：通过node层转发java请求"><span class="toc-number">2.1.</span> <span class="toc-text">方法一：通过node层转发java请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：请求java-API时请求头部增加referrerPolicy-‘origin’"><span class="toc-number">2.2.</span> <span class="toc-text">方法二：请求java API时请求头部增加referrerPolicy: ‘origin’</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么有些浏览器会将origin设置为null呢？"><span class="toc-number">2.2.1.</span> <span class="toc-text">为什么有些浏览器会将origin设置为null呢？</span></a></li></ol></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -569,6 +693,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
