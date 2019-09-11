@@ -352,8 +352,8 @@
         </a>
         <div class="abstract-content">
             现象描述：在部分安卓手机的UC浏览器、QQ浏览器和自带浏览器中，当发起post请求时，浏览器会自动给请求头部增加origin: null，而后端出于安全考虑，无法处理origin：null的请求导致请求失败。
-解决方法：方法一：通过node层转发java请求在node层转发java请求时，手动增加origin: ‘xxx’字段，以express为例：
-1234567891011121314151617181920212223242526// node层router.post(`/api/*`, async (req, res) =&gt; &#123;  const url = req....
+解决方法：方法一：在client和server之间加一层请求转发，以node为例，通过node层转发java请求在node层转发java请求时，手动增加origin: ‘xxx’字段，以express为例：
+1234567891011121314151617181920212223242526// node层router.post(`/api/*`, async (req, res...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
