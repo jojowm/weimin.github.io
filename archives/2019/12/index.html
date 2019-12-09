@@ -346,12 +346,47 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2019/12/09/safari中点击浏览器后退键不重新执行js/" >
+            
+                <span>safari中点击浏览器后退键不重新执行js</span>
+        </a>
+        <div class="abstract-content">
+            现象
+在safari中访问一个页面1
+点击页面上某个链接跳到新页面2
+再点击safari的返回键，返回页面1，不会重新执行页面1的js
+
+原因由于Safari的前进后退键缓存（back-forward cache， bfCache）造成，和普通缓存html不一样，当页面通过前进后退键加载，则onload事件不会被触发，课通过onpageshow事件监听到页面展示
+解决方法1234567window.onpageshow = function(event) &#123;// presisted 在首次加载页面时为false， 当页面是从bfCache中加载，则为true  if (even...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/09</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "ios">ios</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2019/12/09/解决ios浏览器中click点击后页面闪动的问题/" >
             
                 <span>解决ios浏览器中click点击后页面闪动的问题</span>
         </a>
         <div class="abstract-content">
-            解决ios浏览器中click点击后页面闪动的问题现象：在ios浏览器中的页面，点击页面后出现dom背景闪动（灰色半透明的背景）
+            现象：在ios浏览器中的页面，点击页面后出现dom背景闪动（灰色半透明的背景）
 解决方法：为闪动dom添加以下css解决， 将ios默认点击交互效果的透明度设为0
 12345.class&#123;   -webkit-tap-highlight-color:transparent; //方法一   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); //方法二   tap-highlight-color: rgba(0, 0, 0, 0);//方法三&#125;
 
@@ -490,9 +525,20 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 3
+        Total : 4
         </div>
         <!-- search  -->
         
@@ -505,6 +551,11 @@
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/09</span><a class="archive-post-title" href= "/2019/12/09/safari中点击浏览器后退键不重新执行js/" >safari中点击浏览器后退键不重新执行js</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -532,6 +583,10 @@
     
         <span class="sidebar-tag-name" data-tags="DOM"><span class="iconfont-archer">&#xe606;</span>DOM</span>
     
+        <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
+    
+        <span class="sidebar-tag-name" data-tags="react"><span class="iconfont-archer">&#xe606;</span>react</span>
+    
         <span class="sidebar-tag-name" data-tags="post"><span class="iconfont-archer">&#xe606;</span>post</span>
     
         <span class="sidebar-tag-name" data-tags="fetch"><span class="iconfont-archer">&#xe606;</span>fetch</span>
@@ -539,10 +594,6 @@
         <span class="sidebar-tag-name" data-tags="origin"><span class="iconfont-archer">&#xe606;</span>origin</span>
     
         <span class="sidebar-tag-name" data-tags="referrerPolicy"><span class="iconfont-archer">&#xe606;</span>referrerPolicy</span>
-    
-        <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
-    
-        <span class="sidebar-tag-name" data-tags="react"><span class="iconfont-archer">&#xe606;</span>react</span>
     
         <span class="sidebar-tag-name" data-tags="ios"><span class="iconfont-archer">&#xe606;</span>ios</span>
     
